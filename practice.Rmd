@@ -1,0 +1,53 @@
+My First R Markdown File
+==============================
+
+This is my first R markdown file
+
+Here we're going load some data
+
+``` {r}
+library(datasets)
+data("airquality")
+summary(airquality)
+```
+
+
+Let's first make a pairs plot of the data
+
+
+```{r}
+pairs(airquality)
+```
+
+
+Here's a regression model of Ozone on wind, solar radiation, and temperature
+
+
+``` {r}
+library(stats)
+fit <- lm(Ozone ~ Wind + Solar.R + Temp, data = airquality)
+summary(fit)
+
+```
+
+Here's an unordered list
+
+* First
+* Second
+
+
+I don't want code to be echoed
+
+``` {r simulation, echo=FALSE}
+set.seed(1)
+x <- rnorm(100)
+mean(x)
+```
+
+
+I want the code only to show and not the result
+``` {r simulation2, results="hide"}
+set.seed(1)
+x <- rnorm(100)
+mean(x)
+```
